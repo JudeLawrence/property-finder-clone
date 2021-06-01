@@ -10,10 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_142100) do
+ActiveRecord::Schema.define(version: 2021_06_01_184822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "offers", force: :cascade do |t|
+    t.integer "offer_amount"
+    t.text "buyer_comment"
+    t.text "seller_comment"
+    t.boolean "offer_accepted"
+    t.bigint "user_id", null: false
+    t.bigint "property_listing_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["property_listing_id"], name: "index_offers_on_property_listing_id"
+    t.index ["user_id"], name: "index_offers_on_user_id"
+  end
+
+  create_table "property_listings", force: :cascade do |t|
+    t.string "title"
+    t.string "sub_title"
+    t.text "description"
+    t.string "location"
+    t.string "property_type"
+    t.float "listing_price"
+    t.integer "number_of_bedrooms"
+    t.integer "number_of_bathrooms"
+    t.integer "property_size"
+    t.integer "number_of_parking_spaces"
+    t.jsonb "amenities"
+    t.integer "year_built"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_property_listings_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +59,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_142100) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "offers", "property_listings"
+  add_foreign_key "offers", "users"
+  add_foreign_key "property_listings", "users"
 end

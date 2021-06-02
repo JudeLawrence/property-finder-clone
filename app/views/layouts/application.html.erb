@@ -14,7 +14,14 @@
 
   <body>
     <%= render 'shared/navbar' %>
+
+    <% unless params[:controller] == "pages" && params[:action] == "home" %>
+      <div class="container">
+    <% end %>
     <%= yield %>
+    <% unless params[:controller] == "pages" && params[:action] == "home" %>
+      </div>
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </body>

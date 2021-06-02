@@ -28,6 +28,9 @@ gem 'devise'
 # Template data to populate tables in the seed file.
 gem 'faker'
 
+# Authorization
+gem 'pundit'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

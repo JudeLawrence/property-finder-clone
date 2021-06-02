@@ -1,0 +1,37 @@
+<div class="container">
+  <% @listings.each do |listing| %>
+    <!-- card -->
+    <div class="horizontal-card">
+      <img src="https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg" alt="">
+      <div class="card-text-information">
+        <h2><%= listing.title %></h2>
+        <p><%= listing.description %></p>
+        <p class="card-price">AED <%= listing.price %></p>
+        <div class="d-flex">
+          <i class="fas fa-street-view mr-3"></i>
+          <p class="card-location"><%= listing.location %></p>
+        </div>
+        <div class="card-key-information">
+          <div>
+            <i class="far fa-calendar-alt"></i>
+            <p>
+              <%= listing.year_built %>
+            </p>
+          </div>
+          <div>
+            <i class="fas fa-sink"></i>
+            <p>
+              <%= number_of_bathrooms %>
+            </p>
+          </div>
+          <div>
+            <i class="fas fa-bed"></i>
+            <p>
+              <%= number_of_bedrooms %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,48 @@
+.horizontal-cards {
+  display: grid;
+  grid-gap: 20px;
+  margin-top: 20px;
+}
+
+.horizontal-card {
+  position: relative;
+  display: flex;
+  border: 1px solid rgba(230, 230, 230, 0.1);
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+  background-color: beige;
+
+  img {
+    width: 50%;
+    object-fit: cover;
+  }
+
+  .card-text-information {
+    padding-left: 16px;
+  }
+
+  .card-key-information {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-right: 80px;
+  }
+
+  .card-price {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .card-location {
+    font-style: italic;
+  }
+
+  .horizontal-card-arrow {
+    position: absolute;
+    right: 49px;
+    bottom: 20px;
+    font-size: 32px;
+    color: green;
+  }
+}

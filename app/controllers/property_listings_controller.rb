@@ -1,12 +1,20 @@
 class PropertyListingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show]
+
+  before_action :set_listing, only: [:show]
+  # skip_before_action :authenticate_user!, only: [:show]
 
   def index
-    @listings = PropertyListing.all
+    @listings = policy_scope(PropertyListing)
   end
   
   def show
+  end
+
+  private
+
+  def set_listing
     @property = PropertyListing.find(params[:id])
+    authorize @property
   end
 
 end

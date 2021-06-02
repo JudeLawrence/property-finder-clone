@@ -15,13 +15,23 @@ property_types = ['apartment', 'villa', 'town house']
 PropertyListing.delete_all if Rails.env.development?
 User.delete_all if Rails.env.development?
 
-user = User.create(
-        email: "test@test.com",
+user1 = User.create(
+        email: "test1@test.com",
         password: "123456",
         first_name: "Bob",
         last_name: "Plant",
         phone_number: "+55 555 5555",
 )
+
+user2 = User.create(
+        email: "test2@test.com",
+        password: "123456",
+        first_name: "Pete",
+        last_name: "Build",
+        phone_number: "+55 555 5555",
+)
+
+users = [user1, user2]
 
 5.times do
   property = PropertyListing.new(
@@ -37,7 +47,7 @@ user = User.create(
     number_of_parking_spaces: rand(1...4),
     amenities: "None",
     year_built: rand(1900...2020),
-    user: user
+    user: users.sample
   )
   property.save
 end

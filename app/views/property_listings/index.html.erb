@@ -1,4 +1,4 @@
-<div class="container">
+<div class="horizontal-cards">
   <% @listings.each do |listing| %>
     <!-- card -->
     <div class="horizontal-card">
@@ -6,12 +6,14 @@
       <div class="card-text-information">
         <h2><%= listing.title %></h2>
         <p><%= listing.description %></p>
-        <p class="card-price">AED <%= listing.price %></p>
-        <div class="d-flex">
-          <i class="fas fa-street-view mr-3"></i>
-          <p class="card-location"><%= listing.location %></p>
-        </div>
+        <p class="card-price"><%= listing.listing_price.to_i %> AED</p>
         <div class="card-key-information">
+          <div>
+            <i class="fas fa-street-view mr-3"></i>
+            <p class="card-location">
+              <%= listing.location %>
+            </p>
+          </div>
           <div>
             <i class="far fa-calendar-alt"></i>
             <p>
@@ -21,16 +23,19 @@
           <div>
             <i class="fas fa-sink"></i>
             <p>
-              <%= number_of_bathrooms %>
+              <%= listing.number_of_bathrooms %>
             </p>
           </div>
           <div>
             <i class="fas fa-bed"></i>
             <p>
-              <%= number_of_bedrooms %>
+              <%= listing.number_of_bedrooms %>
             </p>
           </div>
         </div>
+        <%= link_to property_listing_path(listing), class: "horizontal-card-arrow" do %>
+          <i class="fas fa-arrow-circle-right"></i>
+        <% end %>
       </div>
     </div>
   <% end %>

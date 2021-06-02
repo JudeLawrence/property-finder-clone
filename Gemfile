@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # User authentication
 gem 'devise'
 
+# Template data to populate tables in the seed file.
+gem 'faker'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

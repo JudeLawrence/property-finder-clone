@@ -5,3 +5,58 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+require 'faker'
+
+property_types = ['apartment', 'villa', 'town house']
+
+
+PropertyListing.delete_all if Rails.env.development?
+User.delete_all if Rails.env.development?
+
+user = User.create(
+        email: "test@test.com",
+        password: "123456",
+        first_name: "Bob",
+        last_name: "Plant",
+        phone_number: "+55 555 5555",
+)
+
+5.times do
+  property = PropertyListing.new(
+    title: Faker::Hipster.sentence(word_count: 3),
+    sub_title: Faker::Hipster.sentence(word_count: 5),
+    description: Faker::Hipster.sentence(word_count: 10),
+    location: Faker::Address.state,
+    property_type: property_types.sample,
+    listing_price: rand(1...10) * 1000000,
+    number_of_bedrooms: rand(1...6),
+    number_of_bathrooms: rand(1...4),
+    property_size: rand(1...10) * 500,
+    number_of_parking_spaces: rand(1...4),
+    amenities: "None",
+    year_built: rand(1900...2020),
+    user: user
+  )
+  property.save
+end
+
+# Property Listing
+# t.string "title"
+# t.string "sub_title"
+# t.text "description"
+# t.string "location"
+# t.string "property_type"
+# t.float "listing_price"
+# t.integer "number_of_bedrooms"
+# t.integer "number_of_bathrooms"
+# t.integer "property_size"
+# t.integer "number_of_parking_spaces"
+# t.jsonb "amenities"
+# t.integer "year_built"
+
+# Users
+# t.string "first_name"
+# t.string "last_name"
+# t.string "phone_number"

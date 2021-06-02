@@ -42,21 +42,3 @@ user = User.create(
   property.save
 end
 
-# Property Listing
-# t.string "title"
-# t.string "sub_title"
-# t.text "description"
-# t.string "location"
-# t.string "property_type"
-# t.float "listing_price"
-# t.integer "number_of_bedrooms"
-# t.integer "number_of_bathrooms"
-# t.integer "property_size"
-# t.integer "number_of_parking_spaces"
-# t.jsonb "amenities"
-# t.integer "year_built"
-
-# Users
-# t.string "first_name"
-# t.string "last_name"
-# t.string "phone_number"

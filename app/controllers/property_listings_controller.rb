@@ -6,8 +6,12 @@ class PropertyListingsController < ApplicationController
   def index
     @listings = policy_scope(PropertyListing)
   end
-  
+
   def show
+    @marker = {
+      lat: @property.latitude,
+      lng: @property.longitude
+    }
   end
 
   private

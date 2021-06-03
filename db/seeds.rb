@@ -8,6 +8,7 @@
 
 
 require 'faker'
+require "open-uri"
 
 property_types = ['apartment', 'villa', 'town house']
 
@@ -32,8 +33,11 @@ user2 = User.create(
 )
 
 users = [user1, user2]
+img_randomizer =['big','modern','new']
+
 
 5.times do
+
   property = PropertyListing.new(
     title: Faker::Hipster.sentence(word_count: 3),
     sub_title: Faker::Hipster.sentence(word_count: 5),
@@ -49,6 +53,8 @@ users = [user1, user2]
     year_built: rand(1900...2020),
     user: users.sample
   )
+
+  house_image = URI.open("https://source.unsplash.com/featured/?home,#{img_randomizer.sample}")
+  property.image.attach(io: house_image, filename: 'house.jpg', content_type: 'image/jpg')
   property.save
 end
-

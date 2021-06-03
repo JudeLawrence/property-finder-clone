@@ -8,10 +8,10 @@ class PropertyListingsController < ApplicationController
   end
 
   def show
-    @marker = {
+    @marker = [{
       lat: @property.latitude,
       lng: @property.longitude
-    }
+    }]
   end
 
   def new
@@ -41,6 +41,6 @@ class PropertyListingsController < ApplicationController
     params.require(:property_listing).permit(:title, :sub_title, :description,
                                              :location, :property_type, :listing_price, :number_of_bedrooms,
                                              :number_of_bathrooms, :number_of_parking_spaces, :property_size,
-                                             :amenities, :year_built)
+                                             :amenities, :year_built, :image)
   end
 end

@@ -5,6 +5,7 @@
     url('<%= cl_image_path @property.image.key %>')">
 </div>
 
+<%= link_to '< Go Back', 'javascript:history.back()' %>
 
 <div class="container pt-3">
   <h1><%= @property.title %></h1>
@@ -27,6 +28,8 @@
   </div>
 
   <hr>
+
+
   <h2> Description</h2>
 
   <p><%= @property.description %></p>

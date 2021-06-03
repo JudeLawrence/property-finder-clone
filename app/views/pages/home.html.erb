@@ -18,9 +18,7 @@
       <!-- card -->
       <%= link_to property_listing_path(listing), class: "square-card-link" do %>
         <div class="square-card">
-
-          <%= cl_image_tag listing.image.key %>
-          <!-- <img src="https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg" alt=""> -->
+          <img src="https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg" alt="">
           <div class="card-text-information">
             <h2><%= truncate(listing.title, length: 60) %></h2>
             <p class="card-price"><%= listing.listing_price.to_i %> AED</p>

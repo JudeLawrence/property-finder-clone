@@ -13,8 +13,8 @@ require "open-uri"
 property_types = ['apartment', 'villa', 'town house']
 
 
-PropertyListing.delete_all # if Rails.env.development?
-User.delete_all # if Rails.env.development?
+PropertyListing.delete_all if Rails.env.development?
+User.delete_all if Rails.env.development?
 
 user1 = User.create(
         email: "test1@test.com",

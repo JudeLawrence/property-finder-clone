@@ -1,7 +1,7 @@
 class PropertyListingsController < ApplicationController
 
   before_action :set_listing, only: [:show]
-  # skip_before_action :authenticate_user!, only: [:show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @listings = policy_scope(PropertyListing)

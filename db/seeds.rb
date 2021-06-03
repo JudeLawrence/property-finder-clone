@@ -33,10 +33,10 @@ user2 = User.create(
 )
 
 users = [user1, user2]
-img_randomizer =['big','modern','new']
+img_randomizer =['big','modern','new','fancy','villa','townhouse']
 
 
-5.times do
+6.times do
 
   property = PropertyListing.new(
     title: Faker::Hipster.sentence(word_count: 3),

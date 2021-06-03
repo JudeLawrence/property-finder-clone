@@ -2,7 +2,9 @@
   <% @listings.each do |listing| %>
     <!-- card -->
     <div class="horizontal-card">
-      <img src="https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg" alt="">
+      <div class="property-image" style="background-image: url('<%= cl_image_path listing.image.key %>')">
+      </div>
+      <%#= cl_image_tag listing.image.key %>
       <div class="card-text-information">
         <h2><%= listing.title %></h2>
         <p><%= listing.description %></p>

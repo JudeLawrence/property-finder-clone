@@ -1,0 +1,50 @@
+<div class="form_banner">
+  <div class="form-container">
+
+    <h1 class="text-center mt-3">List your property</h1>
+
+    <div class="property-listing-form">
+      <%= simple_form_for @property_listing do |f| %>
+        <%= f.input :title %>
+        <%= f.input :sub_title %>
+        <%= f.input :description %>
+        <%= f.input :location %>
+        <%= f.input :property_type %>
+        <%= f.input :listing_price %>
+        <div class="row text-center">
+          <div class="col">
+            <i class="fas fa-bed"></i>
+            <%= f.input :number_of_bedrooms, collection: 1..10, label: false %>
+          </div>
+          <div class="col">
+            <i class="fas fa-sink"></i>
+            <%= f.input :number_of_bathrooms, collection: 1..12, label: false %>
+          </div>
+          <div class="col">
+            <i class="fas fa-parking"></i>
+            <%= f.input :number_of_parking_spaces, collection: 1..6, label: false %>
+          </div>
+        </div>
+        <%= f.input :property_size %>
+        <%= f.input :amenities %>
+        <%= f.input :year_built %>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+   <!-- t.string "title"
+    t.string "sub_title"
+    t.text "description"
+    t.string "location"
+    t.string "property_type"
+    t.float "listing_price"
+    t.integer "number_of_bedrooms"
+    t.integer "number_of_bathrooms"
+    t.integer "property_size"
+    t.integer "number_of_parking_spaces"
+    t.jsonb "amenities"
+    t.integer "year_built"
+    t.bigint "user_id", null: false -->

@@ -1,0 +1,31 @@
+.small-listing-card {
+  display: flex;
+  background-color: #fff;
+  padding: 8px;
+  margin-bottom: 16px;
+
+  color: black;
+
+  .listing-image {
+    width: 200px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .card-title {
+    font-size: 1.2em;
+  }
+
+  .card-content {
+    margin-left: 8px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: darkgoldenrod;
+  }
+}

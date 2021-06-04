@@ -3,6 +3,10 @@
   style="
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
     url('<%= cl_image_path @property.image.key %>')">
+
+    <% if @property.user == current_user %>
+      <%= link_to 'Edit Listing', 'javascript:history.back()', class: 'btn btn-warning mt-3 ml-3' %>
+    <% end %>
 </div>
 
 <%= link_to '< Go Back', 'javascript:history.back()' %>

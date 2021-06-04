@@ -1,0 +1,19 @@
+<h1><%= @current_user.email %></h1>
+<% if current_user %>
+<h2>Current Listings</h2>
+<% end %>
+
+<% @current_user.property_listings.each do |property| %>
+  <%= link_to property_listing_path(property) do %>
+
+    <div class="small-listing-card">
+
+      <div class="listing-image" style="background-image: url('<%= cl_image_path property.image.key %>')"></div>
+      <div class="card-content">
+        <div class="card-title"><%= property.title %></div>
+        <p>$<%= property.listing_price.to_i %></p>
+      </div>
+    </div>
+
+  <% end %>
+<% end %>

@@ -10,7 +10,8 @@ class PropertyListingsController < ApplicationController
   def show
     @marker = [{
       lat: @property.latitude,
-      lng: @property.longitude
+      lng: @property.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { property_listing: @property })
     }]
   end
 

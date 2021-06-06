@@ -4,7 +4,15 @@ class PropertyListingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :update]
 
   def index
-    @listings = policy_scope(PropertyListing)
+    # @listings = policy_scope(PropertyListing)
+
+    if params[:query].present?
+      @listings = policy_scope(PropertyListing).search_by_title_subtitle_and_description(params[:query])
+      authorize @listings
+    else
+      @listings = policy_scope(PropertyListing)
+
+    end
   end
 
   def show

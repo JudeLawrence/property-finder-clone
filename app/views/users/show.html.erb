@@ -1,9 +1,9 @@
 <h1><%= @current_user.first_name %> <%= @current_user.last_name %></h1>
 <% if current_user %>
 
-<%= link_to 'Edit Profile', edit_user_registration_path(@current_user) %>
+<%= link_to 'Edit Profile', edit_user_registration_path(@current_user), class: 'btn btn-warning mb-3' %><br />
+<%= cl_image_tag @current_user.avatar.key, class: 'user-image mb-5' %>
 
-<%= cl_image_tag @current_user.avatar.key %>
 <h2>Current Listings</h2>
 <% end %>
 

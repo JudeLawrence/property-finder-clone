@@ -1,0 +1,15 @@
+<div class="form_banner">
+  <div class="form-container">
+
+    <h1 class="text-center mt-3">List your property</h1>
+
+    <div class="property-listing-form">
+      <%= simple_form_for [@property_listing, @offer] do |f| %>
+        <%= f.input :offer_amount, placeholder: 'Enter amount in AED' %>
+        <%= f.input :buyer_comment, label: "Notes" %>
+        <%= f.submit class: 'btn btn-primary', value: "Submit your Offer" %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

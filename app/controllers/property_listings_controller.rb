@@ -5,10 +5,11 @@ class PropertyListingsController < ApplicationController
 
   def index
     @scoped_listings = policy_scope(PropertyListing)
-    @min_price = params.key?(:min_price) ? params[:min_price].to_i : 1 ;
-    @max_price = params[:max_price] == "" ? nil : params[:max_price].to_i ;
+    @min_price = params[:min_price] == "" ? 1 : params[:min_price].to_i
+    @max_price = params[:max_price].nil? ? nil : params[:max_price].to_i
 
-    @filtered_listings = @scoped_listings.where(listing_price: @min_price..@max_price)
+    @filtered_listings = @scoped_listings.where(listing_price: 1..@max_price)
+
 
     if params[:query].present?
       @listings = @filtered_listings.search_by_title_subtitle_and_description(params[:query])

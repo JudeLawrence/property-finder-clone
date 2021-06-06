@@ -1,7 +1,7 @@
 class PropertyListingsController < ApplicationController
 
-  before_action :set_listing, only: [:show]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_listing, only: [:show, :edit, :update]
+  skip_before_action :authenticate_user!, only: [:index, :show, :update]
 
   def index
     @listings = policy_scope(PropertyListing)
@@ -30,6 +30,18 @@ class PropertyListingsController < ApplicationController
       redirect_to property_listing_path(@property_listing)
     else
       render 'new'
+    end
+  end
+
+  def edit
+
+  end
+
+  def update
+    if @property.update(property_listing_params)
+      redirect_to property_listing_path(@property)
+    else
+      render :edit
     end
   end
 

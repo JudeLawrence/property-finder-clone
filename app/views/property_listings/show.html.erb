@@ -5,7 +5,7 @@
     url('<%= cl_image_path @property.image.key %>')">
 
     <% if @property.user == current_user %>
-      <%= link_to 'Edit Listing', 'javascript:history.back()', class: 'btn btn-warning mt-3 ml-3' %>
+      <%= link_to 'Edit Listing', edit_property_listing_path, class: 'btn btn-warning mt-3 ml-3' %>
     <% end %>
 </div>
 

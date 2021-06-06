@@ -1,0 +1,32 @@
+<h1>Edit Property</h1>
+
+
+<div class="property-listing-form">
+      <%= simple_form_for @property do |f| %>
+        <%= f.input :title %>
+        <%= f.input :sub_title %>
+        <%= f.input :description %>
+        <%= f.input :location, class: 'address-field'%>
+        <%= f.input :property_type %>
+        <%= f.input :listing_price %>
+        <div class="row text-center">
+          <div class="col">
+            <i class="fas fa-bed"></i>
+            <%= f.input :number_of_bedrooms, collection: 1..10, label: false %>
+          </div>
+          <div class="col">
+            <i class="fas fa-sink"></i>
+            <%= f.input :number_of_bathrooms, collection: 1..12, label: false %>
+          </div>
+          <div class="col">
+            <i class="fas fa-parking"></i>
+            <%= f.input :number_of_parking_spaces, collection: 1..6, label: false %>
+          </div>
+        </div>
+        <%= f.input :property_size %>
+        <%= f.input :amenities %>
+        <%= f.input :year_built %>
+        <%= f.input :image, as: :file %>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>

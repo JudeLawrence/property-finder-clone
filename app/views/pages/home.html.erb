@@ -19,7 +19,7 @@
           <%= cl_image_tag listing.image.key %>
           <div class="card-text-information">
             <h2><%= truncate(listing.title, length: 60) %></h2>
-            <p class="card-price"><%= listing.listing_price.to_i %> AED</p>
+            <p class="card-price"><%= number_with_delimiter(listing.listing_price.to_i) %> AED</p>
             <div class="card-key-information">
               <div>
                 <i class="fas fa-street-view mr-3"></i>

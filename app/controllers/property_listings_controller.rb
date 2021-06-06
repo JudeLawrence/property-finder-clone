@@ -4,14 +4,17 @@ class PropertyListingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :update]
 
   def index
-    # @listings = policy_scope(PropertyListing)
+    @scoped_listings = policy_scope(PropertyListing)
+    @min_price = params.key?(:min_price) ? params[:min_price].to_i : 1 ;
+    @max_price = params[:max_price] == "" ? nil : params[:max_price].to_i ;
+
+    @filtered_listings = @scoped_listings.where(listing_price: @min_price..@max_price)
 
     if params[:query].present?
-      @listings = policy_scope(PropertyListing).search_by_title_subtitle_and_description(params[:query])
+      @listings = @filtered_listings.search_by_title_subtitle_and_description(params[:query])
       authorize @listings
     else
-      @listings = policy_scope(PropertyListing)
-
+      @listings = @filtered_listings
     end
   end
 

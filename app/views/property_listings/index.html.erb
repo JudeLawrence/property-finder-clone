@@ -1,3 +1,13 @@
+<%= form_tag property_listings_path, method: :get do%>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control mt-5",
+      placeholder: "Find a property"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary mt-2" %>
+  <% end %>
+
+
 <div class="horizontal-cards">
   <% @listings.each do |listing| %>
     <!-- card -->
@@ -8,7 +18,7 @@
       <div class="card-text-information">
         <h2><%= listing.title %></h2>
         <p><%= listing.description %></p>
-        <p class="card-price"><%= listing.listing_price.to_i %> AED</p>
+        <p class="card-price"><%= number_with_delimiter(listing.listing_price.to_i,delimiter: ',') %> AED</p>
         <div class="card-key-information">
           <div>
             <i class="fas fa-street-view mr-3"></i>
@@ -42,3 +52,5 @@
     </div>
   <% end %>
 </div>
+
+<%#= raise %>

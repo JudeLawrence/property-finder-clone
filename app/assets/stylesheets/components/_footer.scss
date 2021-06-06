@@ -1,11 +1,48 @@
-footer {
-  width: 100%;
-  height: 95px;
-  background-color: darkgrey;
-  margin-top: 45px;
+.footer {
+  background: #be94f2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 250px;
+  padding: 20px 50px;
+  color: rgba(0,0,0,0.7);
+  position: relative;
+  font-size: 18px;
 }
 
-body {
-  margin: 0;
-  padding: 0;
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+
+.footer-links a {
+  color: black;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+
+.footer-links a:hover {
+  opacity: 3;
+}
+
+.footer .fa-heart {
+  color: #D23333;
+}
+
+.footer-address {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.footer-copyright {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-style: italic;
+  font-size: 14px;
+  font-weight: bold;
 }

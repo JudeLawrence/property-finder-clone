@@ -1,5 +1,9 @@
-<h1><%= @current_user.email %></h1>
+<h1><%= @current_user.first_name %> <%= @current_user.last_name %></h1>
 <% if current_user %>
+
+<%= link_to 'Edit Profile', edit_user_registration_path(@current_user) %>
+
+<%= cl_image_tag @current_user.avatar.key %>
 <h2>Current Listings</h2>
 <% end %>
 
@@ -11,7 +15,8 @@
       <div class="listing-image" style="background-image: url('<%= cl_image_path property.image.key %>')"></div>
       <div class="card-content">
         <div class="card-title"><%= property.title %></div>
-        <p>$<%= property.listing_price.to_i %></p>
+        <div>$<%= property.listing_price.to_i %></div>
+        <div><i class="fas fa-map-marker-alt"></i> <%= property.location %></div>
       </div>
     </div>
 

@@ -9,7 +9,7 @@
     <% end %>
 </div>
 
-<%= link_to '< Go Back', 'javascript:history.back()' %>
+<%= link_to '< Go Back', 'javascript:history.back()', class: 'btn btn-outline-primary mt-3' %>
 
 <div class="container pt-3">
   <h1><%= @property.title %></h1>
@@ -47,16 +47,29 @@
     <div class="location">
       <h2>Location</h2>
       <div id="map"
-         style="width: 400px; height: 400px;"
+         style="width: 400px; height: 200px;"
          data-markers="<%= @marker.to_json %>"
          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-      <p>long. <%= @property.longitude %></br />
-      lat. <%= @property.latitude %></p>
+      <div> <%= @property.location %> </div>
+      <div class="d-flex">long. <%= @property.longitude %> lat. <%= @property.latitude %></div>
+
     </div>
   </div>
 
   <hr>
-  <h2>Latest Properties</h2>
+  <h2>Properties Close By</h2>
 
+  <div class="grid-3-col mt-3">
+    <% @listings.each do |property| %>
+      <%= link_to property_listing_path(property) do %>
+        <div class="card-sm-sq">
+          <div class="card-image" style="background-image: url('<%= cl_image_path property.image.key %>')"></div>
+          <div class="card-content">
+            <%= property.title %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

@@ -13,6 +13,8 @@ class PropertyListingsController < ApplicationController
       lng: @property.longitude,
       info_window: render_to_string(partial: "info_window", locals: { property_listing: @property })
     }]
+
+    @listings = PropertyListing.all.limit(3)
   end
 
   def new

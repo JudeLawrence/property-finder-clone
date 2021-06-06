@@ -50,5 +50,24 @@
 }
 
 
+// Small Square Card .card-sm-sq
+
+.card-sm-sq {
+
+  // background-color: ;
+  border-bottom: 1px solid #aaa;
+
+  .card-image {
+    widows: 100%;
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .card-content {
+    height: 90px;
+    padding-top: 8px;
+  }
+}
 
 

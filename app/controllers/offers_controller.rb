@@ -8,11 +8,13 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.user = current_user
-    @offer.property_listing = PropertyListing.find(params[:property_listing_id])
+    @property_listing = PropertyListing.find(params[:property_listing_id])
+    @offer.property_listing = @property_listing
+
     if @offer.save
       redirect_to property_listings_path
     else
-      # Do something if not validated
+      render :new
     end
   end
 

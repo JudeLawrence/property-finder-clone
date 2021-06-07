@@ -1,3 +1,4 @@
+
 <div
   class="show-img"
   style="
@@ -11,7 +12,8 @@
 
 <%= link_to '< Go Back', 'javascript:history.back()', class: 'btn btn-outline-primary mt-3' %>
 
-<div class="container pt-3">
+<div class="container pt-3 position-relative">
+  <%= link_to "Make an offer", new_property_listing_offer_path(@property), class: "btn btn-success show-btn" %>
   <h1><%= @property.title %></h1>
 
   <p><%= @property.sub_title %></p>

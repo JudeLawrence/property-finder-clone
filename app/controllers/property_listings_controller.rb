@@ -1,5 +1,4 @@
 class PropertyListingsController < ApplicationController
-
   before_action :set_listing, only: [:show, :edit, :update]
   skip_before_action :authenticate_user!, only: [:index, :show, :update]
 
@@ -9,7 +8,6 @@ class PropertyListingsController < ApplicationController
     @max_price = params[:max_price].nil? ? nil : params[:max_price].to_i
 
     @filtered_listings = @scoped_listings.where(listing_price: 1..@max_price)
-
 
     if params[:query].present?
       @listings = @filtered_listings.search_by_title_subtitle_and_description(params[:query])
@@ -46,7 +44,6 @@ class PropertyListingsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update

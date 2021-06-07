@@ -10,15 +10,21 @@
 </div>
 
 <%= link_to '< Go Back', 'javascript:history.back()', class: 'btn btn-outline-primary mt-3' %>
-<%= link_to 'Make An Offer', new_property_listing_offer_path(@property), class: 'btn btn-primary mt-3' %>
+
+<% if @property.user != current_user %>
+  <%= link_to 'Make An Offer', new_property_listing_offer_path(@property), class: 'btn btn-primary mt-3' %>
+<% end %>
 
 
-  <p class="notice py-3 mt-3 text-center"><%= notice %></p>
+  <% if notice.present? %>
+    <p class="notice py-3 mt-3 text-center"><%= notice %></p>
+  <% end %>
 
 <div class="container pt-3">
   <h1><%= @property.title %></h1>
 
   <p><%= @property.sub_title %></p>
+  <p><%= "Seller: #{@property.user.first_name} #{@property.user.last_name}"%></p>
 
   <div class="my-2-col-grid">
 

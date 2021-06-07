@@ -4,6 +4,45 @@
 <%= link_to 'Edit Profile', edit_user_registration_path(@current_user), class: 'btn btn-warning mb-3' %><br />
 <%= cl_image_tag @current_user.avatar.key, class: 'user-image mb-5' %>
 
+<hr>
+<h2>Offers Given</h2>
+
+  <table class='offers-table'>
+    <tr>
+      <th>Property</th>
+      <th>Offer Amount</th>
+      <th>Status</th>
+    </tr>
+    <% @current_user.offers.each do |offer| %>
+      <tr>
+        <td><%= offer.property_listing.title %></td>
+        <td><%= offer.offer_amount %></td>
+        <td><%= offer.status %></td>
+      </tr>
+    <% end %>
+  </table>
+
+<hr>
+<h2>Offers Received</h2>
+
+  <table class='offers-table'>
+    <tr>
+      <th>Property</th>
+      <th>Offer Amount</th>
+      <th>Status</th>
+    </tr>
+    <% @current_user.property_listings.each do |property| %>
+      <% property.offers.each do |offer| %>
+        <tr>
+          <td><%= offer.property_listing.title %></td>
+          <td><%= offer.offer_amount %></td>
+          <td><%= offer.status %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+
+<hr>
 <h2>Current Listings</h2>
 <% end %>
 

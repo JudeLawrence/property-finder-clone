@@ -4,23 +4,23 @@
 <%= link_to 'Edit Profile', edit_user_registration_path(@current_user), class: 'btn btn-warning mb-3' %><br />
 <%= cl_image_tag @current_user.avatar.key, class: 'user-image mb-5' %>
 
-<hr>
-<h2>Offers Given</h2>
+<!-- <hr> -->
+<!-- <h2>Offers Given</h2> -->
 
-  <table class='offers-table'>
+<!-- <table class='offers-table'>
+  <tr>
+    <th>Property</th>
+    <th>Offer Amount</th>
+    <th>Status</th>
+  </tr>
+  <#% @current_user.offers.each do |offer| %>
     <tr>
-      <th>Property</th>
-      <th>Offer Amount</th>
-      <th>Status</th>
+      <td><%#= link_to offer.property_listing.title, offer_path(offer) %></td>
+      <td><%#= offer.offer_amount %></td>
+      <td><span class="status-<%#= offer.status %>"> <%#= offer.status %></span></td>
     </tr>
-    <% @current_user.offers.each do |offer| %>
-      <tr>
-        <td><%= offer.property_listing.title %></td>
-        <td><%= offer.offer_amount %></td>
-        <td><%= offer.status %></td>
-      </tr>
-    <% end %>
-  </table>
+  <%# end %>
+</table> -->
 
 <hr>
 <h2>Offers Received</h2>
@@ -33,10 +33,10 @@
     </tr>
     <% @current_user.property_listings.each do |property| %>
       <% property.offers.each do |offer| %>
-        <tr>
-          <td><%= offer.property_listing.title %></td>
+        <tr class='offer-row'>
+          <td><%= link_to offer.property_listing.title, offer_path(offer) %></td>
           <td><%= offer.offer_amount %></td>
-          <td><%= offer.status %></td>
+          <td><span class="status-<%= offer.status %>"> <%= offer.status %></span></td>
         </tr>
       <% end %>
     <% end %>

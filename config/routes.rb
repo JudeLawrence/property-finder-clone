@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :offers, only: [:new, :create]
   end
 
+  resources :offers, only: [:show, :update]
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end

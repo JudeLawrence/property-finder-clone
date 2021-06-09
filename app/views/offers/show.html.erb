@@ -1,0 +1,17 @@
+
+<h1>Offer From <%= @offer.user.first_name %></h1>
+<p>for <%= link_to @offer.property_listing.title, property_listing_path(@offer.property_listing) %> </p>
+<p><span class="status-<%= @offer.status %>"> <%= @offer.status %></span></p>
+<p><%= @offer.user.first_name %> has offered <%= @offer.offer_amount %></p>
+
+<hr>
+
+<div class="box">
+  <h2>Comment</h2>
+  <p><%= @offer.buyer_comment %></p>
+
+  <% if @offer.status == "pending" %>
+    <%= link_to "Accept Offer", offer_path(@offer, status: 'accepted'), method: :patch, class:'btn btn-primary' %>
+    <%= link_to "Decline Offer", offer_path(@offer, status: 'declined'), method: :patch, class:'btn btn-danger' %>
+  <% end %>
+</div>

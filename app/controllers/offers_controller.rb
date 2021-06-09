@@ -12,15 +12,27 @@ class OffersController < ApplicationController
     @offer.property_listing = @property_listing
 
     if @offer.save
-      redirect_to property_listings_path
+      redirect_to @property_listing, notice: "Your offer has been submitted!"
     else
       render :new
     end
   end
 
+  def show
+    @offer = Offer.find(params[:id])
+  end
+
+  def update
+    @offer = Offer.find(params[:id])
+    @offer.status = params["status"]
+    @offer.save
+    redirect_to @offer
+  end
+
   private
 
   def offer_params
-    params.require(:offer).permit(:offer_amount, :buyer_comment)
+    params.require(:offer).permit(:offer_amount, :buyer_comment, :status, :seller_comment)
   end
+
 end

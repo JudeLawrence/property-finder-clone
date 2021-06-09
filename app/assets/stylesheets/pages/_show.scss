@@ -16,3 +16,42 @@
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 24px;
 }
+
+.status-pending {
+  background-color: orange;
+  padding: 4px 12px;
+  border-radius: 5em;
+  color: white;
+}
+
+.status-accepted {
+  background-color: green;
+  padding: 4px 12px;
+  border-radius: 5em;
+  color: white;
+}
+
+.status-declined {
+  background-color: red;
+  padding: 4px 12px;
+  border-radius: 5em;
+  color: white;
+}
+
+.box {
+  height: 100vh;
+}
+
+.notice {
+  width: 100%;
+  border: 3px solid #02c76b;
+  border-radius: 12px;
+}
+
+tr td {
+  border-bottom: 1px solid #ccc;
+}
+
+table td {
+    padding: 15px 0;
+}

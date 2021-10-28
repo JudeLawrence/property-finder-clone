@@ -16,15 +16,18 @@
   <body>
     <%= render 'shared/navbar' %>
 
-    <% unless (params[:controller] == "pages" && params[:action] == "home") || (params[:controller] == "property_listings" && params[:action] == "new") %>
+    <% unless (params[:controller] == "pages" && params[:action] == "home") || (params[:action] == "new") %>
       <div class="container">
     <% end %>
         
     <%= yield %>
         
-    <% unless (params[:controller] == "pages" && params[:action] == "home") || (params[:controller] == "property_listings" && params[:action] == "new") %>
+    <% unless (params[:controller] == "pages" && params[:action] == "home") || (params[:action] == "new") %>
       </div>
     <% end %>
+
+    <p class="notice m-0"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
     <%= render 'shared/footer' %>
 

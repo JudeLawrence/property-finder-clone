@@ -10,6 +10,7 @@ class OffersController < ApplicationController
     @offer.user = current_user
     @property_listing = PropertyListing.find(params[:property_listing_id])
     @offer.property_listing = @property_listing
+
     if @offer.save
       redirect_to @property_listing, notice: "Your offer has been submitted!"
     else

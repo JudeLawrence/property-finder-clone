@@ -1,3 +1,4 @@
+
 <div
   class="show-img"
   style="
@@ -10,6 +11,7 @@
 </div>
 
 <%= link_to '< Go Back', 'javascript:history.back()', class: 'btn btn-outline-primary mt-3' %>
+
 
 <% if @property.user != current_user %>
   <%= link_to 'Make An Offer', new_property_listing_offer_path(@property), class: 'btn btn-primary mt-3' %>
